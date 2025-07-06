@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TubeDown - Professional YouTube Downloader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+    </div>
+
+    <div class="container">
+        <header class="main-header">
+            <div class="logo">
+                <i class="fas fa-download"></i>
+                <h1>TubeDown</h1>
+            </div>
+            <p class="subtitle">Your professional solution for downloading YouTube content.</p>
+        </header>
+
+        <main>
+            <div id="videoPreview" class="video-preview" style="display: none;">
+                <img id="videoThumbnail" src="" alt="Video Thumbnail">
+                <h3 id="videoTitle"></h3>
+            </div>
+
+            <form id="downloadForm" class="download-form">
+                <div class="input-group">
+                    <i class="fas fa-link"></i>
+                    <input type="text" id="videoUrl" placeholder="Paste YouTube URL here..." required>
+                </div>
+                
+                <div class="options-group">
+                    <p>Choose download format:</p>
+                    <div class="radio-container">
+                        <input type="radio" id="video" name="mode" value="video" checked>
+                        <label for="video" class="radio-label">
+                            <i class="fas fa-video"></i> Video
+                        </label>
+                        <input type="radio" id="audio" name="mode" value="audio">
+                        <label for="audio" class="radio-label">
+                            <i class="fas fa-music"></i> Audio
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="cta-button">
+                    <span class="button-text"><i class="fas fa-arrow-down"></i> Download Now</span>
+                    <div class="spinner" style="display: none;"></div>
+                </button>
+            </form>
+
+            <div id="progressContainer" class="progress-section" style="display: none;">
+                <div class="progress-bar-container">
+                    <div id="progressBar" class="progress-bar"></div>
+                </div>
+                <div id="progressInfo" class="progress-details"></div>
+                <div class="button-group">
+                    <button id="cancelBtn" class="control-button cancel-btn"><i class="fas fa-times"></i> Cancel</button>
+                    <button id="finishBtn" class="control-button finish-btn" style="display: none;"><i class="fas fa-check"></i> Done</button>
+                </div>
+            </div>
+            
+            <div id="message" class="message-area"></div>
+        </main>
+
+        <footer class="main-footer">
+            <p>&copy; 2025 TubeDown. Designed by Usman Ghani. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <div id="notification-container"></div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
